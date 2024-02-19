@@ -5,7 +5,7 @@ export default function Home() {
 
   const LocationCardsElements = myData.map((location) => {
     return (
-        <LocationCard img={location.cover} title={location.title} />
+        <LocationCard key={location.id} img={location.cover} title={location.title} />
     )
   });
 
