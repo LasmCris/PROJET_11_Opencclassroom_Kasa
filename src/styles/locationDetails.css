@@ -1,0 +1,115 @@
+* {
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  margin: 0;
+  padding: 0;
+}
+
+.figureDetailsLocation {
+  padding: 20px;
+  /* background-color: aqua; */
+  height: 73%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.figureDetailsLocation img {
+  height: 68%;
+  width: 100%;
+  border: 2px solid black;
+  margin-bottom: 5px;
+}
+
+.figureDetailsLocation figcaption {
+  height: 32%;
+  width: 100%;
+  /* background-color: rgb(200, 253, 115); */
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
+}
+
+.figcationDetailsLeve1 {
+  height: 70%;
+  width: 100%;
+  /* background-color: rgb(253, 193, 115); */
+  margin-bottom: 5px;
+  display: flex;
+  padding: 5px;
+}
+
+.level1Left {
+  height: 100%;
+  width: 70%;
+  /* background-color: rgb(115, 166, 253); */
+  margin-right: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.level1Left h1 {
+  font-size: medium;
+  color: #fc6c6c;
+}
+.level1Left p {
+}
+.rectangleInfoComponant {
+  border: 2px solid black;
+  height: 30%;
+  margin-top: 20px;
+  width: 50%;
+}
+
+.level1Right {
+  height: 100%;
+  width: 30%;
+  /* border: 2px solid black; */
+  display: flex;
+  flex-direction: column;
+}
+
+.photoPropritaire {
+  height: 70%;
+  width: 100%;
+  /* border: 2px solid black; */
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.photoPropritaire p {
+  height: 100%;
+  width: 50%;
+  /* border: 2px solid black; */
+}
+
+.photoPropritaire img {
+  height: 70px;
+  width: 70px;
+  border-radius: 50%;
+  /* border: 2px solid black; */
+  background-color: rgb(184, 115, 253);
+}
+
+.stars {
+  display: flex;
+  align-items: center;
+  height: 30%;
+  width: 100%;
+  border: 2px solid black;
+  color: #fc6c6c;
+}
+
+.figcationDetailsLeve2 {
+  height: 30%;
+  width: 100%;
+  /* border: 2px solid black; */
+}
+
+.aproposItemDetailsPage {
+  width: 45%;
+}

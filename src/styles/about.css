@@ -1,0 +1,86 @@
+* {
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+/*** ABOUT PAGE ***/
+.aboutContainer {
+  /* background-color: yellow; */
+  height: 73%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 10px 20px;
+}
+
+.aboutContainer__img {
+  box-shadow: 0px 4px 4px 0px #00000040;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  position: relative;
+  align-self: center;
+  /* border: 2px solid black; */
+  width: 95%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("../assets/aboutImage.png");
+  background-size: cover; 
+  background-position: center center; 
+  background-repeat: no-repeat;
+  height: 223px;
+
+}
+
+.aboutContainer__aboutItems {
+  padding-top: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 95%;
+  align-self: center;
+  height: 828px;
+  /* border: 2px solid black; */
+}
+
+
+/*** DROPDOWN A PROPOS ***/
+.dropdown-container {
+  position: relative;
+  width: 85%;
+  margin-bottom: 40px;
+}
+
+.header {
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #fc6c6c;
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.arrow {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 5px 5px 0;
+  border-color: #000 transparent transparent;
+}
+
+.down {
+  transform: rotate(180deg);
+}
+
+.content {
+  padding: 10px;
+  display: block;
+  width: 100%;
+}

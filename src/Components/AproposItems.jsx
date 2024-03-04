@@ -1,6 +1,6 @@
 import React from "react";
 
-const DropdownMenu = (props) => {
+export default function DropdownMenu(props) {
   const [isDropdownOpen, setDropdownOpen] = React.useState(false);
 
   const toggleDropdown = () => {
@@ -22,4 +22,4 @@ const DropdownMenu = (props) => {
   );
 };
 
-export default DropdownMenu;
+

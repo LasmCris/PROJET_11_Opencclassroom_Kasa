@@ -1,6 +1,6 @@
 
 
-function LocationCard(props) {
+export default function LocationCard(props) {
   return (
     <figure key={props.id} className="locationCard">
       <img src={props.img} alt={props.title} />
@@ -12,4 +12,4 @@ function LocationCard(props) {
 }
 
 
-export default LocationCard;
+

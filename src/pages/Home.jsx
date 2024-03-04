@@ -1,12 +1,28 @@
-import LocationCard from "./LocationCard.jsx";
-import myData from "../data/dataLocation.jsx";
+import LocationCard from "../Components/LocationCard";
+// import myData from "../../public/dataLocation.jsx";
+import "../styles/home.css";
+import "../styles/locationCard.css";
+import { useEffect, useState } from "react";
 
 export default function Home() {
+  const [locations, setLocations] = useState([]);
 
-  const LocationCardsElements = myData.map((location) => {
+  useEffect(() => {
+    fetch("dataLocation.json")
+      .then((result) => result.json())
+      .then((data) => {
+        setLocations(data);
+      });
+  }, []);
+
+  const LocationCardsElements = locations.map((location) => {
     return (
-        <LocationCard key={location.id} img={location.cover} title={location.title} />
-    )
+      <LocationCard
+        key={location.id}
+        img={location.cover}
+        title={location.title}
+      />
+    );
   });
 
   return (

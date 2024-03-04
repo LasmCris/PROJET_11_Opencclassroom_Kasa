@@ -1,0 +1,35 @@
+* {
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+
+
+/*** LOCATIONCARD ***/
+
+.locationCard {
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
+  height: 340px;
+  width: 318px;
+  background-color: pink;
+  background: linear-gradient(180deg, #fc6c6c 0%, #fc7c7c 42%, #fc7474 99.99%, #fc7474 100%);
+  border-radius: 2%;
+}
+
+.locationCard img {
+  height: 80%;
+  margin-bottom: 5px;
+  object-fit: cover;
+  object-position: center center;
+  border-radius: 2%;
+}
+
+.locationCard figcaption {
+  display: flex;
+  align-items: center;
+  height: 20%;
+}

@@ -1,5 +1,6 @@
-import AproposItems from "./AproposItems.jsx"
-import dataAPropos from "../data/objetAPropoItem.jsx";
+import AproposItems from "../Components/AproposItems.jsx"
+import dataAPropos from "../data/objetAPropoItem.jsx"
+import "../styles/about.css"
 
 export default function About() {
 

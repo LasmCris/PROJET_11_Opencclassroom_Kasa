@@ -1,10 +1,12 @@
 import ReactDom from "react-dom/client";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
-import "./styles/index.css"
-import Home from "./pages/Home.jsx"
-import About from "./pages/About.jsx"
-import logoKasa from "./assets/LOGO.png"
-import logoBlack from "./assets/logoBlack.png";
+import "./styles/index.css";
+import "./styles/footer.css";
+import Home from "./pages/Home.jsx";
+import About from "./pages/About.jsx";
+import LocationDetails from "./pages/LocationDetails.jsx";
+import logoKasa from "./assets/LOGO.png";
+import Footer from "./Components/Footer.jsx";
 
 function App() {
   return (
@@ -16,22 +18,20 @@ function App() {
         <nav>
           <Link to="/about">A PROPOS</Link>
           <Link to="/">ACCUEIL</Link>
+          <Link to="/Appartement">TEST</Link>
         </nav>
       </header>
 
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
+        <Route path="/Appartement/:id" element={<LocationDetails />} />
       </Routes>
 
-      <footer>
-        <img src={logoBlack} alt="Logo present dans le footer" />
-        <p>© 2020 Kasa. All rights reserved</p>
-      </footer>
+      <Footer />
     </BrowserRouter>
   );
 }
-
 
 const root = document.getElementById("root");
 ReactDom.createRoot(root).render(<App />);
