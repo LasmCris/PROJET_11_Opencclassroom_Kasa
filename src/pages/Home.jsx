@@ -3,6 +3,7 @@ import LocationCard from "../Components/LocationCard";
 import "../styles/home.css";
 import "../styles/locationCard.css";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function Home() {
   const [locations, setLocations] = useState([]);
@@ -17,11 +18,14 @@ export default function Home() {
 
   const LocationCardsElements = locations.map((location) => {
     return (
-      <LocationCard
-        key={location.id}
-        img={location.cover}
-        title={location.title}
-      />
+      <div key={location.id}>
+        <Link
+          to={`/Appartement/${location.id}`}
+          className="LiensVersDetailsAppart"
+        >
+          <LocationCard img={location.cover} title={location.title} />
+        </Link>
+      </div>
     );
   });
 

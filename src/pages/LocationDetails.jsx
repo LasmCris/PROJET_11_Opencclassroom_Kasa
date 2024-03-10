@@ -1,44 +1,69 @@
-import "../styles/locationDetails.css"
+import "../styles/locationDetails.css";
 import RectangleInfo from "../Components/RectangleInfo.jsx";
 import AproposItems from "../Components/AproposItems.jsx";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faStar } from "@fortawesome/free-solid-svg-icons";
-
+import {
+  faStar,
+  faArrowLeft,
+  faArrowRight,
+} from "@fortawesome/free-solid-svg-icons";
+import { useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
+import Carousel from "../Components/Carrouselle.jsx";
 
 export default function LocationDetails() {
+  const [appartement, setAppartement] = useState({});
+  const urlParams = useParams();
+  console.log(urlParams);
+  const idParam = urlParams.id;
 
+  //FONCTION POUR DETERMINER L'APPART EN FONCTION DE SON ID
+  function trouverAppartAvecId(data, id) {
+    for (const item of data) {
+      if (item.id === id) {
+        return item;
+      }
+    }
+  }
 
-    return (
-      <figure className="figureDetailsLocation">
-        <img src="" alt="Image de l'appartement de location" />
-        <figcaption>
-          <div className="figcationDetailsLeve1">
-            <div className="level1Left">
-              <h1>NOM DE L4APARTEMENT</h1>
-              <p>Ville</p>
-              <div className="rectangleInfoComponant">
-                <RectangleInfo />
-              </div>
-            </div>
-            <div className="level1Right">
-              <div className="photoPropritaire">
-                <p>DANNIELL</p>
-                <img src="" alt="photo du proprietaire de l'appartement" />
-              </div>
-              <div className="stars">
-                <FontAwesomeIcon icon={faStar} />
-                <FontAwesomeIcon icon={faStar} />
-                <FontAwesomeIcon icon={faStar} />
-                <FontAwesomeIcon icon={faStar} />
-                <FontAwesomeIcon icon={faStar} />
-              </div>
+  useEffect(() => {
+    fetch(`/dataLocation.json`)
+      .then((res) => res.json())
+      .then((lappart) => trouverAppartAvecId(lappart, idParam))
+      .then((data) => setAppartement(data));
+  }, [idParam]);
+
+  return (
+    <figure className="figureDetailsLocation">
+      <Carousel className="carousel" images={appartement.pictures} />
+      <figcaption>
+        <div className="figcationDetailsLeve1">
+          <div className="level1Left">
+            <h1>{appartement.title}</h1>
+            <p>{appartement.location} </p>
+            <div className="rectangleInfoComponant">
+              <RectangleInfo />
             </div>
           </div>
-
-          <div className="figcationDetailsLeve2">
-            <AproposItems className="aproposItemDetailsPage" />
+          <div className="level1Right">
+            <div className="photoPropritaire">
+              <p>hostname</p>
+              <img src="" alt="photo du proprietaire de l'appartement" />
+            </div>
+            <div className="stars">
+              <FontAwesomeIcon icon={faStar} />
+              <FontAwesomeIcon icon={faStar} />
+              <FontAwesomeIcon icon={faStar} />
+              <FontAwesomeIcon icon={faStar} />
+              <FontAwesomeIcon icon={faStar} />
+            </div>
           </div>
-        </figcaption>
-      </figure>
-    );
+        </div>
+
+        <div className="figcationDetailsLeve2">
+          <AproposItems className="aproposItemDetailsPage" />
+        </div>
+      </figcaption>
+    </figure>
+  );
 }

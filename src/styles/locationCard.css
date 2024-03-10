@@ -5,30 +5,35 @@
   font-style: normal;
 }
 
-
-
 /*** LOCATIONCARD ***/
 
 .locationCard {
+  cursor: pointer;
+  position: relative;
   display: flex;
   flex-direction: column;
-  padding: 5px;
-  height: 340px;
-  width: 318px;
+  /* padding: 5px; */
+  height: 320px;
+  width: 300px;
   background-color: pink;
-  background: linear-gradient(180deg, #fc6c6c 0%, #fc7c7c 42%, #fc7474 99.99%, #fc7474 100%);
+background: linear-gradient(180deg,rgba(255,255,255,0) 0%,rgba(0,0,0,.5) 100%);
   border-radius: 2%;
+  margin-bottom: 52px;
 }
 
 .locationCard img {
-  height: 80%;
-  margin-bottom: 5px;
+  height: 100%;
+  /* margin-bottom: 5px; */
   object-fit: cover;
   object-position: center center;
-  border-radius: 2%;
+  border-radius: 5%;
 }
 
 .locationCard figcaption {
+  z-index: 2;
+  position: absolute;
+  bottom: 0;
+  left: 10px;
   display: flex;
   align-items: center;
   height: 20%;
