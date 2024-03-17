@@ -1,54 +1,67 @@
 import "../styles/locationDetails.css";
-import RectangleInfo from "../Components/RectangleInfo.jsx";
-import AproposItems from "../Components/AproposItems.jsx";
+import "../styles/squareInfo.css";
+import "../styles/dropdownAppartment.css";
+import SquareInfo from "../Components/SquareInfo.jsx";
+import DropdownAppartment from "../Components/DropdownAppartment.jsx";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faStar,
-  faArrowLeft,
-  faArrowRight,
-} from "@fortawesome/free-solid-svg-icons";
+import { faStar } from "@fortawesome/free-solid-svg-icons";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Carousel from "../Components/Carrouselle.jsx";
 
 export default function LocationDetails() {
-  const [appartement, setAppartement] = useState({});
   const urlParams = useParams();
-  console.log(urlParams);
+  // console.log(urlParams);
   const idParam = urlParams.id;
 
-  //FONCTION POUR DETERMINER L'APPART EN FONCTION DE SON ID
-  function trouverAppartAvecId(data, id) {
-    for (const item of data) {
-      if (item.id === id) {
-        return item;
-      }
-    }
-  }
+ const [location, setLocation] = useState(null);
+ const [loading, setLoading] = useState(true);
+ const [error, setError] = useState(false);
 
-  useEffect(() => {
-    fetch(`/dataLocation.json`)
-      .then((res) => res.json())
-      .then((lappart) => trouverAppartAvecId(lappart, idParam))
-      .then((data) => setAppartement(data));
-  }, [idParam]);
+ useEffect(() => {
+   fetch("/dataLocation.json")
+     .then((res) => res.json())
+     .then((locations) => locations.find((location) => location.id === idParam))
+     .then((location) => {
+       setLoading(false);
+       if (location === undefined) {
+         setError(true);
+         return;
+       }
+
+       setLocation(location);
+     });
+ }, [idParam]);
+
+ if (loading) {
+   return <h1>Chargement...</h1>;
+ }
+
+ if (error) {
+   return redirect("/error");
+ }
 
   return (
     <figure className="figureDetailsLocation">
-      <Carousel className="carousel" images={appartement.pictures} />
+      <Carousel className="carousel" images={location.pictures} />
       <figcaption>
         <div className="figcationDetailsLeve1">
           <div className="level1Left">
-            <h1>{appartement.title}</h1>
-            <p>{appartement.location} </p>
+            <h1>{location.title}</h1>
+            <p>{location.location} </p>
             <div className="rectangleInfoComponant">
-              <RectangleInfo />
+              {location.tags.map((tag, index) => (
+                <SquareInfo key={index} info={tag} />
+              ))}
             </div>
           </div>
           <div className="level1Right">
             <div className="photoPropritaire">
-              <p>hostname</p>
-              <img src="" alt="photo du proprietaire de l'appartement" />
+              <p>{location.host.name}</p>
+              <img
+                src={location.host.picture}
+                alt="photo du proprietaire de l'appartement"
+              />
             </div>
             <div className="stars">
               <FontAwesomeIcon icon={faStar} />
@@ -61,7 +74,16 @@ export default function LocationDetails() {
         </div>
 
         <div className="figcationDetailsLeve2">
-          <AproposItems className="aproposItemDetailsPage" />
+          <DropdownAppartment
+            detailAppartment="Description"
+            detailApropos={location.description}
+          />
+          <DropdownAppartment
+            detailAppartment="Equipements"
+            detailApropos={location.equipments.map((equipment, index) => (
+              <p key={index}>{equipment}</p>
+            ))}
+          />
         </div>
       </figcaption>
     </figure>

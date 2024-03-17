@@ -1,0 +1,25 @@
+* {
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  margin: 0;
+  padding: 0;
+}
+
+.rectangleInfo {
+  display: flex;
+  margin-right: 10px;
+  justify-content: center;
+  align-items: center;
+  background-color: #fc6c6c;
+  height: 30px;
+  min-width: 100px;
+  padding: 0 5px;
+  border-radius: 5px;
+}
+
+.rectangleInfo p {
+  color: white;
+  font-size: 12px;
+}

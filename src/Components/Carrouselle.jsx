@@ -2,24 +2,23 @@ import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft, faArrowRight } from "@fortawesome/free-solid-svg-icons";
 
-export default function Carousel (props) {
-
+export default function Carousel(props) {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   const goToPreviousImage = () => {
-    const newIndex = (currentImageIndex - 1 + props.length) % props.length;
-    setCurrentImageIndex(newIndex);
+    setCurrentImageIndex(
+      (prevIndex) => (prevIndex - 1 + props.images.length) % props.images.length
+    );
   };
 
   const goToNextImage = () => {
-    const newIndex = (currentImageIndex + 1) % props.length;
-    setCurrentImageIndex(newIndex);
+    setCurrentImageIndex((prevIndex) => (prevIndex + 1) % props.images.length);
   };
 
   return (
     <div className="carousel">
       <img
-        src={props[currentImageIndex]}
+        src={props.images[currentImageIndex]} // Utilisation correcte des images depuis props
         alt={`Image ${currentImageIndex + 1}`}
       />
 
@@ -38,7 +37,3 @@ export default function Carousel (props) {
     </div>
   );
 }
-
-
-
-

@@ -18,7 +18,7 @@
 }
 
 .figureDetailsLocation img {
-  height: 68%;
+  height: 100%;
   width: 100%;
   /* border: 2px solid black; */
   margin-bottom: 5px;
@@ -28,9 +28,8 @@
 }
 
 .carousel {
-    height: 68%;
+  height: 68%;
   width: 100%;
-  border: 2px solid black;
 }
 
 .figureDetailsLocation figcaption {
@@ -69,12 +68,13 @@
 }
 
 .level1Left p {
-  color: #fc6c6c;
+  color: #000000;
   font-size: 12px;
+  font-weight: 500;
 }
 
 .rectangleInfoComponant {
-  border: 2px solid black;
+  display: flex;
   height: 30%;
   margin-top: 11px;
   width: 50%;
@@ -126,19 +126,20 @@
 }
 
 .figcationDetailsLeve2 {
+  display: flex;
+  justify-content: space-between;
   height: 30%;
   width: 100%;
-  /* border: 2px solid black; */
 }
 
-.aproposItemDetailsPage {
+/* .aproposItemDetailsPage {
   width: 45%;
-}
+} */
 
 .arrowLeft {
   cursor: pointer;
   font-size: 80px;
-  color: rgb(230, 213, 21);
+  color: rgb(198, 198, 195);
   position: absolute;
   top: 173px;
   left: 100px;
@@ -147,7 +148,7 @@
 .arrowRight {
   cursor: pointer;
   font-size: 80px;
-  color: rgb(230, 213, 21);
+  color: rgb(198, 198, 195);
   position: absolute;
   top: 173px;
   right: 100px;
